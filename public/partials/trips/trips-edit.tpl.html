@@ -1,0 +1,66 @@
+<div class="container">
+	<div class="row section-header">
+		<div class="col-md-12">
+			<h3>Trip detail</h3>
+		</div>
+	</div>
+	
+	<form name="tripForm" class="form-horizontal">
+		<div class="row">
+			<div class="col-md-3" ng-class="{ 'has-error': tripForm.destination.$dirty && tripForm.destination.$invalid }">
+				<label class="control-label">Destination:</label>
+				<input type="text" class="form-control" name="destination" ng-model="trip.destination" required/>
+				<div class="help-block" ng-show="tripForm.destination.$dirty && tripForm.destination.$error.required">Required</div>
+			</div>
+			<div class="col-md-3">
+				<label class="control-label">Days to trip:</label>
+				<div class="form-control">{{trip.startDate | daysToTrip }}</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3" ng-class="{ 'has-error': tripForm.startDate.$dirty && tripForm.startDate.$invalid }">
+				<label class="control-label">Start date:</label>
+				<p class="input-group">
+					<input type="text" class="form-control" name="startDate" ng-model="trip.startDate" is-open="openedStartDate" datepicker-options="dateOptions" datepicker-popup="dd-MM-yyyy" required/>
+					<span class="input-group-btn">
+						<button class="btn btn-default" ng-click="openStartDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+					</span>
+				</p>
+				<div class="help-block" ng-show="tripForm.startDate.$dirty && tripForm.startDate.$error.required">Required</div>
+			</div>
+			<div class="col-md-3" ng-class="{ 'has-error': tripForm.endDate.$dirty && tripForm.endDate.$invalid }">
+				<label class="control-label">End date:</label>
+				<p class="input-group">
+					<input type="text" class="form-control" name="endDate" ng-model="trip.endDate" is-open="openedEndDate" datepicker-options="dateOptions" datepicker-popup="dd-MM-yyyy" required/>
+					<span class="input-group-btn">
+						<button class="btn btn-default" ng-click="openEndDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+					</span>
+				</p>
+				<div class="help-block" ng-show="tripForm.endDate.$dirty && tripForm.endDate.$error.required">Required</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6" ng-class="{ 'has-error': tripForm.comment.$dirty && tripForm.comment.$invalid }">
+				<label class="control-label">Comment:</label>
+				<div class="controls">
+					<textarea rows="5" cols="40" class="form-control" name="story" ng-model="trip.comment" required></textarea>
+				</div>
+				<div class="help-block" ng-show="tripForm.comment.$dirty && tripForm.comment.$error.required">Required</div>
+			</div>
+		</div>
+		<div class="row" ng-show="errorMessage != null">
+			<br>
+			<div class="col-md-6 has-error">
+				<label class="control-label">{{errorMessage}}</label>
+			</div>
+		</div>
+		<div class="row">
+			<br>
+			<div class="col-md-3">
+				<a ng-click="create()" ng-show="mode == 'create'" ng-disabled="tripForm.$invalid" class="btn btn-sm btn-success">Create</a>
+				<a ng-click="update()" ng-show="mode == 'update'" ng-disabled="tripForm.$invalid" class="btn btn-sm btn-success">Update</a>
+				<a ng-click="cancel()" class="btn btn-sm btn-primary">Cancel</a>
+			</div>
+		</div>
+	</form>
+</div>

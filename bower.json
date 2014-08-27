@@ -1,0 +1,15 @@
+{
+	"name": "travel-planner",
+	"version": "1.0.0",
+	"dependencies": {
+		"requirejs": "2.1.14",
+		"requirejs-domready": "2.0.1",
+		"underscore": "1.6.0",
+		"angular": "1.2.23",
+		"angular-route": "1.2.23",
+		"angular-resource": "1.2.23",
+		"angular-bootstrap": "0.11.0"
+	},
+
+	"private": true
+}

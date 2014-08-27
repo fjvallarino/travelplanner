@@ -1,0 +1,56 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12" style="text-align: center">
+			<h1>Login</h1>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-12">&nbsp;</div>
+	</div>
+
+	<form name="loginForm" class="form-horizontal">
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-1">
+				<label class="control-label">Username:</label>
+			</div>
+			<div class="col-md-3">
+				<input type="text" class="form-control" ng-model="user.username" required />
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<span>&nbsp;</span>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-1">
+				<label class="control-label">Password:</label>
+			</div>
+			<div class="col-md-3">
+				<input type="password" class="form-control" ng-model="user.password" required />
+			</div>
+		</div>
+
+		<div class="row" ng-show="errorMessage != null">
+			<br>
+			<div class="col-md-5"></div>
+			<div class="col-md-4 has-error">
+				<label class="control-label">{{errorMessage}}</label>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<br>
+			<div class="col-md-5"></div>
+			<div class="col-md-4">
+				<a ng-click="login()" ng-disabled="loginForm.$invalid" class="btn btn-sm btn-success">Login</a>
+				<a ng-click="cancel()" class="btn btn-sm btn-primary">Cancel</a>
+			</div>
+		</div>
+	</form>
+</div>
